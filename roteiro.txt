@@ -1,0 +1,38 @@
+Catálogo de Livros
+
+1- Criar o projeto
+npm create vite@latest CatalogoLivros
+cd catalogolivros
+npm install axios react-rout-dom bootstrap
+
+
+
+2- Remover códigos do projeto padrão do React
+App.jsx
+App.css
+Index.css
+
+3 - Importar o Bootstrap no main
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+4 - Criar os Componentes Menu, LivroList e LivroForm
+
+5 - Criar o conteúdo do Menu
+
+6 - Definir as rotas e a lógica no App
+
+7 - Criar o Layout do LivroList
+
+8 - Criar um seridor fake - simular back-end
+O arquivo db.json
+npm install -g json-server
+json-server --watch db.json --port 5000
+
+9 - Criar o componente da API
+
+10 - Criar as funcionalidades do LivroList
+
+11 - Criar o Layout do LivroFrom
+
+12 - Criar as funcionalidades do LivroFrom
+
