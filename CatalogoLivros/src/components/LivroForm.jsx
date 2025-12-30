@@ -9,10 +9,13 @@ export default function LivroForm (){
   const [categoria, setCategoria] = useState("Romance");
   const [descricao, setDescricao] = useState("");
 
+  const { id } = useParams();
+  //const navigate = useNavigate();
+
   return(
-    <div className="container card p-0 mt-4" style={{ maxWidth: "500px"}}>
+    <div className="container card p-0 mt-5" style={{ maxWidth: "500px"}}>
       <div className="card-header">
-        <h5>Novo Livro</h5>
+        <h5>{id ? "Editar Livro" : "Novo Livro"}</h5>
       </div>
       <div className="card-body">
         <form>
@@ -62,8 +65,8 @@ export default function LivroForm (){
                         required
             ></textarea>
           </div>
-          <button type="submit" className="btn btn-primary">Salvar</button>
-          <Link to="/" className="btn btn-warning ms-2">Cancelar</Link>
+          <button type="submit" className="btn btn-success">Salvar</button>
+          <Link className="btn btn-warning ms-2" to={"/"} >Voltar</Link>
         </form>
       </div>
 
