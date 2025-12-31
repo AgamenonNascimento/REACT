@@ -11,6 +11,13 @@ export default function LivroList(){
         const resposta = await api.get('/')
         setLivros(resposta.data)
     }
+    const excluir = async (id) => {
+      if (!window.confirm("Confirma a exclusão deste livro?")) {
+        return
+      }
+      await api.delete(`/${id}`)
+      carregarLivros()
+    }
   
 
   return(
@@ -41,7 +48,7 @@ export default function LivroList(){
                   <Link className="btn btn-primary btn-sm" to={`/editar/${livro.id}`}>Editar</Link>
                 </td>
                 <td>
-                  <Link className="btn btn-danger btn-sm" to={`/excluir/${livro.id}`}>Excluir</Link> 
+                  <Link className="btn btn-danger btn-sm" onClick={() => excluir(livro.id)}>Excluir</Link> 
                 </td>
               </tr>
               ))}

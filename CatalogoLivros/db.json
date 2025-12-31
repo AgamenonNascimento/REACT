@@ -1,34 +1,28 @@
-{ "livros": [
-  {
-    "id": 1,
-    "titulo": "Dom Casmurro",
-    "paginas": "256",
-    "categoria": "Ficção",
-    "descricao": "Um romance clássico da literatura brasileira que explora temas de amor, ciúme e traição."
+{
+  "livros": [
+    {
+      "titulo": "Dom Casmurro",
+      "paginas": "256",
+      "categoria": "Ficção",
+      "descricao": "Um romance clássico da literatura brasileira que explora temas de amor, ciúme e traição.",
+      "id": "1"
     },
-    { 
-      "id": 2,
+    {
+      "id": "2",
       "titulo": "1984",
       "paginas": "328",
       "categoria": "Ficção",
       "descricao": "Um romance distópico que retrata uma sociedade controlada por um regime autoritário."
     },
     {
-      "id": 3,
+      "id": "3",
       "titulo": "O Senhor dos Anéis",
       "paginas": "1216",
       "categoria": "Fantasia",
       "descricao": "Um épico romance de fantasia que segue a jornada do anel mágico."
     },
     {
-      "id": 4,
-      "titulo": "Cem Anos de Solidão",
-      "paginas": "417",
-      "categoria": "Ficção",
-      "descricao": "Um romance que narra a história da família Buendía em Macondo."
-    },
-    {
-      "id": 5,
+      "id": "5",
       "titulo": "O Pequeno Príncipe",
       "paginas": "96",
       "categoria": "Ficção",

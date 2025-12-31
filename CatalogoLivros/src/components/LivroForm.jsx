@@ -6,12 +6,38 @@ import api from "../services/api"
 export default function LivroForm (){
   const [titulo, setTitulo] = useState("");
   const [paginas, setPaginas] = useState("");
-  const [categoria, setCategoria] = useState("Romance");
+  const [categoria, setCategoria] = useState("");
   const [descricao, setDescricao] = useState("");
 
   const { id } = useParams();
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
 
+  useEffect(() => {
+    if (id) {
+      // Carregar os dados do livro para edição
+      api.get(`/${id}`).then((resposta) => {
+        const livro = resposta.data;
+        setTitulo(livro.titulo);
+        setPaginas(livro.paginas);
+        setCategoria(livro.categoria);
+        setDescricao(livro.descricao);
+      });
+    }
+  }, [id]);
+
+  const salvar = async (e) => {
+    e.preventDefault();
+    const dados = { titulo, paginas, categoria, descricao };
+    if (id) {
+      // Edição
+      await api.put(`/${id}`, dados);
+    } else {    
+      // Novo registro
+      await api.post("/", dados);
+    }
+    navigate("/");
+
+  }
   return(
     <div className="container card p-0 mt-5" style={{ maxWidth: "500px"}}>
       <div className="card-header">
@@ -48,6 +74,7 @@ export default function LivroForm (){
                       onChange={e => setCategoria(e.target.value)}
                       required
             >
+              <option value=""></option>
               <option value="Romance">Romance</option>
               <option value="Ficção">Ficção</option>
               <option value="Suspense">Suspense</option>
@@ -65,7 +92,7 @@ export default function LivroForm (){
                         required
             ></textarea>
           </div>
-          <button type="submit" className="btn btn-success">Salvar</button>
+          <button type="submit" onClick={salvar} className="btn btn-success">Salvar</button>
           <Link className="btn btn-warning ms-2" to={"/"} >Voltar</Link>
         </form>
       </div>
